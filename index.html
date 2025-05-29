@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>/x/ - The Backrooms</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #d0f0c0;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      animation: flicker 3s infinite alternate;
+    }
+    .post {
+      border: 1px solid #444;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #111;
+    }
+    .post .author {
+      color: #87cefa;
+      font-weight: bold;
+    }
+    .post .timestamp {
+      font-size: 12px;
+      color: #ccc;
+    }
+    .start-button {
+      display: block;
+      margin: 50px auto;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #7fffd4;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      animation: glitchPulse 2s infinite;
+    }
+    .start-button:hover {
+      background-color: #66d3b0;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.95; filter: brightness(1.02); }
+      70% { opacity: 0.85; filter: brightness(0.98); }
+      100% { opacity: 1; }
+    }
+
+    @keyframes glitchPulse {
+      0% { transform: scale(1) skewX(0deg); }
+      20% { transform: scale(1.01) skewX(-0.5deg); }
+      40% { transform: scale(0.99) skewX(0.5deg); }
+      60% { transform: scale(1.02) skewX(-0.3deg); }
+      80% { transform: scale(0.98) skewX(0.3deg); }
+      100% { transform: scale(1) skewX(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <div class="author">Anonymous</div>
+    <div class="timestamp">05/28/25(Fri)20:11:32</div>
+    > If you're not careful and you noclip out of reality in the wrong areas, you'll end up in the Backrooms...
+  </div>
+
+  <div class="post">
+    <div class="author">Anonymous</div>
+    <div class="timestamp">05/28/25(Fri)20:12:44</div>
+    > anyone else seen this image? it looks too real. could it be a real place?
+  </div>
+
+  <div class="post">
+    <div class="author">Anonymous</div>
+    <div class="timestamp">05/28/25(Fri)20:14:01</div>
+    > I heard the first image was uploaded from an old Hobbytown USA blog in 2003... wild
+  </div>
+
+  <button class="start-button" onclick="enterBackrooms()">Enter the Backrooms</button>
+
+  <script>
+    function enterBackrooms() {
+      window.location.href = "main.html";
+    }
+  </script>
+</body>
+</html>
