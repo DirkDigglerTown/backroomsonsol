@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,6 @@
       --border-gray: #b7b7b7;
       --text-black: #000;
       --text-green: #008000;
-      --text-id: #888;
       --text-timestamp: #444;
       --ad-bg: #ffffcc;
     }
@@ -23,16 +23,12 @@
       font-family: Tahoma, sans-serif;
       font-size: 0.875rem;
     }
-
-    /* Top scrolling banner */
     .marquee {
       background: #3333cc;
       color: #fff;
       padding: 4px 0;
       font-weight: bold;
     }
-
-    /* Landing page layout */
     .landing-wrapper {
       display: flex;
       max-width: 1024px;
@@ -40,8 +36,6 @@
       padding: 10px;
       box-sizing: border-box;
     }
-
-    /* Sidebar */
     .sidebar {
       width: 200px;
       background: var(--bg-post);
@@ -60,8 +54,6 @@
     .sidebar li { margin-bottom: 6px; }
     .sidebar a { color: #0000ee; text-decoration: none; }
     .sidebar a:hover { text-decoration: underline; }
-
-    /* Fake banner ads */
     .ad-box {
       background: var(--ad-bg);
       border: 2px outset var(--border-gray);
@@ -69,14 +61,14 @@
       margin-bottom: 12px;
       text-align: center;
     }
-    .ad-box img {
+    .ad-box img,
+    .ad-box video {
       display: block;
       margin: 0 auto 8px;
-      max-width: 100%; height: auto;
+      max-width: 100%;
+      height: auto;
       border: 1px solid var(--border-gray);
     }
-
-    /* Member login */
     .login-box {
       background: var(--bg-post);
       border: 2px outset var(--border-gray);
@@ -101,8 +93,6 @@
       color: #0000ee; text-decoration: none;
     }
     .login-box a:hover { text-decoration: underline; }
-
-    /* Main content */
     .main-content { flex: 1; }
     .header { text-align: center; }
     .header img {
@@ -113,8 +103,7 @@
       font-size: 0.75rem; text-align: center; margin: 6px 0;
     }
     .dexscreener a {
-      font-weight: bold; color: #0000ee;
-      text-decoration: none;
+      font-weight: bold; color: #0000ee; text-decoration: none;
     }
     .dexscreener .community-button {
       display: inline-block;
@@ -130,8 +119,6 @@
     .dexscreener .community-button:hover {
       background-color: #d0d0ff;
     }
-
-    /* Chat logs */
     .container { margin: 10px 0; font-family: monospace; }
     .thread-box {
       background: var(--bg-yellow);
@@ -161,22 +148,16 @@
       color: #008080; margin-left: 12px;
       font-style: italic;
     }
-
-    /* Enter button */
     #enter-button {
       display: block; margin: 12px auto;
       padding: 6px 12px; background: #e0e0ff;
       border: 2px outset var(--text-black);
       font-size: 1rem; cursor: pointer;
     }
-
-    /* Footer hit counter (image removed) */
     .footer {
       text-align: center; margin-top: 12px;
       font-size: 0.75rem; color: #555;
     }
-
-    /* Audio toggle */
     #audio-toggle {
       position: fixed; top: 1rem; right: 1rem;
       background: #222; color: #fff;
@@ -185,8 +166,6 @@
       border-radius: 0.25rem; z-index: 1000;
       display: none;
     }
-
-    /* Experience section (slides) */
     #experience-section {
       display: none; width: 100vw; height: 100vh;
       overflow-x: hidden; position: relative;
@@ -221,8 +200,6 @@
       background: rgba(255,255,255,0.1);
       padding: 0.625rem; border-radius: 0.375rem;
     }
-
-    /* Slide nav controls */
     .controls {
       position: absolute; bottom: 1.25rem; right: 1.25rem; z-index: 500;
     }
@@ -235,8 +212,6 @@
     .controls button:hover {
       background: rgba(255,255,255,0.1);
     }
-
-    /* Exit button (only on “The End”) */
     #exit-button {
       position: fixed; top: 1rem; left: 1rem;
       background: #222; color: #fff;
@@ -244,22 +219,14 @@
       border: 1px solid #fff; cursor: pointer;
       border-radius: 0.25rem; z-index: 1000;
     }
-
-    /* Responsive tweaks */
     @media (max-width: 800px) {
-      .landing-wrapper {
-        flex-direction: column; padding: 8px;
-      }
-      .sidebar {
-        width: 100%; margin-bottom: 12px;
-      }
+      .landing-wrapper { flex-direction: column; padding: 8px; }
+      .sidebar { width: 100%; margin-bottom: 12px; }
     }
     @media (max-width: 600px) {
       html { font-size: 90%; }
       .sidebar { display: none; }
-      .slide {
-        padding: 1.5rem 1.5rem 4rem;
-      }
+      .slide { padding: 1.5rem 1.5rem 4rem; }
       .overlay {
         max-width: 90%; padding: 1rem;
         font-size: 0.9rem; line-height: 1.4;
@@ -280,19 +247,15 @@
   </style>
 </head>
 <body>
-  <!-- Scrolling banner -->
   <div class="marquee">
     <marquee>Welcome to the official Backrooms Solana Project! Explore hidden levels &amp; beware of the void...</marquee>
   </div>
 
-  <!-- Audio element & toggle -->
   <audio id="experience-audio" src="audio.mp3" loop></audio>
   <button id="audio-toggle">Mute Audio</button>
 
-  <!-- Landing page -->
   <section id="landing-page">
     <div class="landing-wrapper">
-      <!-- Sidebar -->
       <aside class="sidebar">
         <h2>Learn More</h2>
         <ul>
@@ -318,12 +281,11 @@
           <a href="#">Register</a>
         </div>
         <div class="ad-box">
-          <strong>Sponsored</strong><br>
-          <a href="#"><img src="./ad2.png" alt="Join the Wiki"></a>
+          <strong>Sponsored</strong>
+          <video src="./Solana.mp4" loop autoplay muted width="180"></video>
         </div>
       </aside>
 
-      <!-- Main forum teaser -->
       <div class="main-content">
         <div class="header">
           <h1 id="forum-heading">The Backrooms</h1>
@@ -379,7 +341,6 @@
     </div>
   </section>
 
-  <!-- Experience (slides) -->
   <section id="experience-section"></section>
 
   <script>
@@ -410,13 +371,11 @@
       }
     ];
 
-    // Audio toggle
     toggleBtn.addEventListener('click', () => {
       audio.muted = !audio.muted;
       toggleBtn.textContent = audio.muted ? 'Unmute Audio' : 'Mute Audio';
     });
 
-    // Enter the void
     enterButton.addEventListener('click', () => {
       marquee.style.display        = 'none';
       landingPage.style.display    = 'none';
@@ -453,7 +412,6 @@
         }
         slide.appendChild(overlay);
 
-        // Exit button only on "The End"
         if (s.title === "The End") {
           const exitBtn = document.createElement('button');
           exitBtn.id = 'exit-button';
@@ -473,25 +431,23 @@
         experienceSec.appendChild(slide);
       });
 
-      // Prev/Next controls  
       const ctrls = document.createElement('div');
       ctrls.className = 'controls';
-      ctrls.innerHTML = `  
-        <button id="prev-btn">Previous</button>  
-        <button id="next-btn">Next</button>  
-      `;  
-      experienceSec.appendChild(ctrls);  
-      document.getElementById('prev-btn').addEventListener('click', prevSlide);  
-      document.getElementById('next-btn').addEventListener('click', nextSlide);  
+      ctrls.innerHTML = `
+        <button id="prev-btn">Previous</button>
+        <button id="next-btn">Next</button>
+      `;
+      experienceSec.appendChild(ctrls);
+      document.getElementById('prev-btn').addEventListener('click', prevSlide);
+      document.getElementById('next-btn').addEventListener('click', nextSlide);
 
-      // Touch swipe support  
-      let startX = 0;  
-      experienceSec.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX);  
-      experienceSec.addEventListener('touchend', e => {  
-        const dx = e.changedTouches[0].screenX - startX;  
-        if (dx > 50) prevSlide();  
-        else if (dx < -50) nextSlide();  
-      });  
+      let startX = 0;
+      experienceSec.addEventListener('touchstart', e => startX = e.changedTouches[0].screenX);
+      experienceSec.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].screenX - startX;
+        if (dx > 50) prevSlide();
+        else if (dx < -50) nextSlide();
+      });
     }
 
     function showSlide(i) {
@@ -511,3 +467,4 @@
   </script>
 </body>
 </html>
+```
