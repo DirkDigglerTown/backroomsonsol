@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>/x/ - The Backrooms</title>
+  <style>
+    body {
+      background-color: #f0e0d6;
+      color: #000;
+      font-family: Tahoma, sans-serif;
+      font-size: 10pt;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      text-align: center;
+      padding: 10px 0;
+    }
+    .header img {
+      max-width: 300px;
+      margin-top: 8px;
+    }
+    .dexscreener {
+      font-size: 12px;
+      text-align: center;
+      padding: 8px;
+    }
+    .dexscreener a {
+      font-weight: bold;
+      color: #0000ee;
+      text-decoration: underline;
+    }
+    .container {
+      margin: 10px;
+    }
+    .thread-box {
+      background-color: #f0e0d6;
+      border: 1px solid #b7b7b7;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .post {
+      background-color: #d6daf0;
+      border: 1px solid #b7b7b7;
+      padding: 8px;
+      margin-bottom: 5px;
+    }
+    .name {
+      color: green;
+      font-weight: bold;
+    }
+    .timestamp {
+      font-size: 8pt;
+      color: #444;
+    }
+    .id {
+      color: #888;
+      font-size: 8pt;
+    }
+    .button {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #e0e0ff;
+      border: 2px solid #000;
+      cursor: pointer;
+      text-align: center;
+    }
+    #experience-section {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 60px;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.55);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #fff;
+    }
+    .overlay h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .overlay summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .overlay p {
+      font-size: 1em;
+      margin-top: 10px;
+    }
+    .overlay details {
+      margin-top: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    .controls button {
+      background: none;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 8px 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .controls button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    #exit-button {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #222;
+      color: white;
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="landing-page">
+    <div class="header">
+      <h1>The Backrooms</h1>
+      <img src="logo.png" alt="The Backrooms Logo">
+    </div>
+    <div class="dexscreener">
+      <p><a href="https://dexscreener.com/solana/4zt91o7eg1mdc4brpy4vfnwgqbbwefhfmqafzmefghm2" target="_blank">Dexscreener</a></p>
+      <p>CA: 5pg6vsSxpugYtfgG32gyarA22SV26mFHwVLXg29Cm7hF</p>
+    </div>
+    <div class="container">
+      <div class="thread-box">
+        <div class="post">
+          <span class="name">Anon</span> <span class="timestamp">05/28/25(Fri)13:37:00</span> <span class="id">ID: zxcv123</span>
+          <p>What if there was a place beyond reality… just endless yellow rooms, humming lights, and the sense that you're not alone?</p>
+        </div>
+        <div class="post">
+          <span class="name">OP</span> <span class="timestamp">05/28/25(Fri)13:38:02</span> <span class="id">ID: qwer567</span>
+          <p>I’m writing a project called “The Backrooms.” Canon levels. Escape routes. Entities. It’s growing. Come help.</p>
+        </div>
+        <div class="post">
+          <span class="name">Anonymous</span> <span class="timestamp">05/28/25(Fri)13:39:40</span> <span class="id">ID: hjkl890</span>
+          <p>This sounds cursed af. Count me in.</p>
+        </div>
+      </div>
+    </div>
+    <div class="button" onclick="startExperience()">Enter the Void</div>
+  </div>
+
+  <div id="experience-section"></div>
+
+  <script>
+    const slides = [
+      {
+        title: "Level 0 - The Lobby",
+        image: "level0.jpg",
+        lore: "An endless maze of mono-yellow office rooms. The air smells of damp carpet and the fluorescent lights buzz endlessly. Entities are rare but not impossible. The danger lies in psychological breakdown — wanderers often lose track of time and purpose.",
+        exit: "Find an off-colored wall and noclip through."
+      },
+      {
+        title: "Level 1 - Habitable Zone",
+        image: "level1.jpg",
+        lore: "Dimly lit concrete halls with machinery noises. More hostile entities begin appearing, such as Hounds and Facelings. Supplies can sometimes be found in crates. The danger is increased entity activity and disorienting layout that causes circular wandering.",
+        exit: "Locate a dark corner with cold air — leads to Level 2."
+      },
+      {
+        title: "Level 2 - Pipe Dreams",
+        image: "level2.jpg",
+        lore: "Tight industrial tunnels with loud pipes. Temperatures fluctuate dangerously and steam bursts are common. Hostile entities such as Skin-Stealers are common. The danger here is both environmental and predatory.",
+        exit: "Survive until a red-lit valve room appears."
+      },
+      {
+        title: "Level 3 - Electrical Station",
+        image: "level3.jpg",
+        lore: "A sprawling power station with flickering lights and alarming hums. Smilers, Wretches, and other dangerous entities roam freely. Electrical hazards and machinery malfunctions can be lethal. The danger here is high — one of the deadliest levels.",
+        exit: "Activate a power box marked with an X."
+      },
+      {
+        title: "Level 4 - Abandoned Office",
+        image: "level4.jpg",
+        lore: "A cleaner office layout. Cold and silent. Wanderers occasionally report hearing voices they recognize — an auditory trap. The danger is subtle: psychological and emotional manipulation.",
+        exit: "Walk into the elevator with no buttons."
+      },
+      {
+        title: "Level 5 - The Hotel",
+        image: "level5.jpg",
+        lore: "Opulent 1920s hotel rooms and hallways. Music plays faintly. The staff will watch but rarely interact. Eating or drinking here is dangerous. The main danger lies in temptation and disorientation.",
+        exit: "Find Room 283 and knock three times."
+      },
+      {
+        title: "Level 6 - Lights Out",
+        image: "level6.jpg",
+        lore: "Absolute darkness. Flashlights flicker. Auditory hallucinations and shadow figures make navigation nearly impossible. The danger is losing your mind or falling into hidden voids.",
+        exit: "Follow the ticking of a grandfather clock."
+      },
+      {
+        title: "Level 7 - Flooded Halls",
+        image: "level7.jpg",
+        lore: "A partially submerged architectural maze. Unknown entities swim below. Waterlogged documents float by. The danger comes from drowning, infection, or being pulled into the depths by unseen hands.",
+        exit: "Climb through a grate in a dry corner."
+      },
+      {
+        title: "Level 8 - The Caverns",
+        image: "level8.jpg",
+        lore: "Jagged black rock caves. Dangerous insects and malformed beasts roam. Crystals glow in places of interest. The danger lies in physical injuries, poisonous fauna, and cave-ins.",
+        exit: "Slide down the smallest tunnel and crawl for 10 minutes."
+      },
+      {
+        title: "Level 9 - Suburban Night",
+        image: "level9.jpg",
+        lore: "Empty suburbia at night. Lights flicker. Mailboxes contain diary fragments. It feels too quiet. The danger is from deceptive stillness — wanderers disappear after encountering familiar homes.",
+        exit: "Get into a white van that honks once."
+      }
+    ];
+
+    let currentSlide = 0;
+    function startExperience() {
+      document.getElementById("landing-page").style.display = "none";
+      document.getElementById("experience-section").style.display = "block";
+      buildSlides();
+      showSlide(currentSlide);
+    }
+
+    function buildSlides() {
+      const container = document.getElementById("experience-section");
+      container.innerHTML = "";
+      slides.forEach((s, index) => {
+        const slide = document.createElement("div");
+        slide.className = "slide";
+        slide.style.backgroundImage = `url(${s.image})`;
+        const overlay = document.createElement("div");
+        overlay.className = "overlay";
+        overlay.innerHTML = `<h2>${s.title}</h2><p><em>${s.lore.split('.')[0]}.</em></p><details><summary>More Info</summary><p>${s.lore}</p><p><strong>Exit:</strong> ${s.exit}</p></details>`;
+        slide.appendChild(overlay);
+        if (index === slides.length - 1) {
+          const exitBtn = document.createElement("button");
+          exitBtn.id = "exit-button";
+          exitBtn.textContent = "Exit";
+          exitBtn.onclick = () => {
+            document.getElementById("experience-section").style.display = "none";
+            document.getElementById("landing-page").style.display = "block";
+            window.scrollTo(0, 0);
+          };
+          slide.appendChild(exitBtn);
+        }
+        container.appendChild(slide);
+      });
+      const controls = document.createElement("div");
+      controls.className = "controls";
+      controls.innerHTML = `<button onclick="prevSlide()">Previous</button><button onclick="nextSlide()">Next</button>`;
+      container.appendChild(controls);
+    }
+
+    function showSlide(index) {
+      const all = document.querySelectorAll(".slide");
+      all.forEach((el, i) => el.classList.toggle("active", i === index));
+    }
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+</body>
+</html>
